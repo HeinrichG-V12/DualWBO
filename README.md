@@ -9,11 +9,12 @@
 
 - Microchip AT90CAN128
 - 2x Bosch CJ125 wideband lambda controller
-- NXP TJA1050T high speed can transceiver
 - Infineon TLE42754D LDO 5v and 450mA
-- Analog Devices AD5337 8-bit DAC
-- Analog Devices ADR02 5v and 10mA precision reference (0.1%) for TLS115
+- 2x TI ADS1015 12-bit **or** ADS1115 16-bit ADC for signal acquisition from CJ125
+- Analog Devices AD5338 10-bit **or** AD5339 12-bit DAC for analog outputs
+- Analog Devices ADR02 5v and 10mA precision reference (0.1%) for TLS115B0EJ
 - Infineon TLS115B0EJ voltage tracker for analog part, provides 5v and 150mA
+- NXP TJA1050T (or pin compatible TJA1051T) high speed can transceiver
 - ...
 
 ### Features
@@ -33,7 +34,7 @@
 
 ### Outputs
 
-- dual analog output, either as 0..5V for Lambda 0.65 to 1.35 **OR** narrow band emulation
+- dual analog output, either as 0..5V for Lambda 0.6 to 1.23 **OR** narrow band emulation
 - CAN output (AEM X-Series protocol) for both channels and debug messages
 
 ### Bosch CJ125 (LQFP32 package) part numbers
@@ -46,24 +47,24 @@
 
 #### A couple of CJ125 ICs
 
-![alt text](./hardware/datasheet/CJ125.jpg "Bosch CJ125 ICs")
+![alt text][cj125_ics]
 
 ### Suitable Bosch lambda probes
 
 Basically, the Bosch probes whose numbers start with **0 258 017** will fit, also Bosch **0 281 004**.  
 Bosch numbers beginning with **0 258 007** are *LSU 4.2* probes and will not fit.
 
-|Bosch number  |Length overall|Comment|
+|Bosch number|Length overall|Comment|
 |--------------|--------------|-------|
-|0 258 017 012 |1060mm||
-|0 258 017 025 |1000mm|Bosch motorsport part|
-|0 258 017 029 |620mm|grey, used by BMW after 09/2006 (1178 7539124)|
-|0 258 017 038 |340mm|grey, used by BMW (11787537984)|
-|0 258 017 092 |950mm|black, used by BMW (1178 7540167)|
-|0 258 017 126 |680mm|black, used by BMW after 09/2006 (1178 7561410)|
-|0 281 004 028 |540mm||
-|0 281 004 150 |1215mm||
-|0 281 004 184 |1000mm||
+|0 258 017 012|1060mm||
+|0 258 017 025|1000mm|Bosch motorsport part|
+|0 258 017 029|620mm|grey, used by BMW after 09/2006 (1178 7539124)|
+|0 258 017 038|340mm|grey, used by BMW (11787537984)|
+|0 258 017 092|950mm|black, used by BMW (1178 7540167)|
+|0 258 017 126|680mm|black, used by BMW after 09/2006 (1178 7561410)|
+|0 281 004 028|540mm||
+|0 281 004 150|1215mm||
+|0 281 004 184|1000mm||
 |...|||
 
 ### LSU4.9 probe pinout
@@ -76,3 +77,5 @@ Bosch numbers beginning with **0 258 007** are *LSU 4.2* probes and will not fit
 |4|grey|Heater voltaget H+|Uh+|
 |5|green|Trim Resistor RT|IA|
 |6|black|Nernst voltage UN|RE|
+
+[cj125_ics]: ./datasheet/CJ125.jpg "Bosch CJ125 ICs"
